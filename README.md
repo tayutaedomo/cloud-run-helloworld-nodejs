@@ -19,3 +19,20 @@ $ npm start
 $ open 'http://0.0.0.0:8080/'
 ```
 
+
+## Docker
+```
+$ cd cloud-run-helloworld-nodejs
+$ docker build -t cloud-run-helloworld-nodejs .
+$ docker run --rm -it -e PORT=8080 -p 8080:8080 cloud-run-helloworld-nodejs
+$ open 'http://0.0.0.0:8080'
+```
+
+
+## Cloud Run
+```
+$ cd cloud-run-helloworld-nodejs
+$ gcloud builds submit --tag gcr.io/[PROJECT-ID]/helloworld-nodejs
+$ gcloud run deploy --image gcr.io/[PROJECT-ID]/helloworld-nodejs --platform managed
+```
+
